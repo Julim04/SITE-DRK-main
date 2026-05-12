@@ -19,6 +19,8 @@
             <div class="title-section">
                 <h1>Nicole & Dérik</h1>
                 <p></p>
+                <audio id="bgm" class="audio-player" autoplay src="Djavan - Lilás (Ao Vivo) (Áudio Oficial).mp3"
+                    controls loop preload="auto"></audio>
                 <h2>Feliz 1 ano e 1 mês!</h2>
             </div>
             <!-- Botão do menu hambúrguer -->
@@ -35,6 +37,31 @@
             </nav>
         </div>
     </header>
+    <script>
+        const player = document.getElementById("bgm");
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedTime = parseFloat(localStorage.getItem("musicaTempo"));
+            const startTime = !Number.isNaN(savedTime) && savedTime >= 0 ? savedTime : 0;
+
+            player.volume = 0.1;
+            player.currentTime = startTime;
+            player.play().catch(() => console.log("Autoplay bloqueado; aguarde interação do usuário."));
+        });
+
+        setInterval(() => {
+            if (!player.paused) {
+                localStorage.setItem("musicaTempo", player.currentTime);
+                localStorage.setItem("musicaTocando", "true");
+            } else {
+                localStorage.setItem("musicaTocando", "false");
+            }
+        }, 500);
+
+        window.addEventListener("beforeunload", () => {
+            localStorage.setItem("musicaTempo", player.currentTime);
+        });
+    </script>
     <div class="conteudo">
         <p>Desde que você entrou na minha vida, tudo começou a fazer mais sentido, até mesmo quando você queria terminar
             comigo kkkkk. E agora, olhando pra tudo que vivemos nesse 1 ano e 1 mês juntos, eu percebo o quanto você se
@@ -117,45 +144,9 @@
 
     <script src="js/script.js"></script>
 
-<footer>
+    <footer>
         <p>&copy; 2026 Seu Site. Feito pelo Juiu.</p>
-        <audio id="bgm" class="audio-player" autoplay src="Djavan - Lilás (Ao Vivo) (Áudio Oficial).mp3" controls loop preload="auto"></audio>
-
-        <script>
-            const player = document.getElementById("bgm");
-
-            // 1. Ao carregar a página (Recupera onde parou)
-            window.addEventListener('DOMContentLoaded', () => {
-                const savedTime = localStorage.getItem("musicaTempo");
-                const isPlaying = localStorage.getItem("musicaTocando");
-
-                player.volume = 0.1; 
-
-                if (savedTime) {
-                    player.currentTime = parseFloat(savedTime);
-                }
-
-                // Se estava tocando na outra página, tenta continuar aqui
-                if (isPlaying === "true") {
-                    player.play().catch(e => console.log("Aguardando interação."));
-                }
-            });
-
-            // 2. Salva o progresso continuamente
-            setInterval(() => {
-                if (!player.paused) {
-                    localStorage.setItem("musicaTempo", player.currentTime);
-                    localStorage.setItem("musicaTocando", "true");
-                } else {
-                    localStorage.setItem("musicaTocando", "false");
-                }
-            }, 500);
-
-            // 3. Salva no momento exato da saída
-            window.addEventListener("beforeunload", () => {
-                localStorage.setItem("musicaTempo", player.currentTime);
-            });
-        </script>
     </footer>
 </body>
+
 </html>
