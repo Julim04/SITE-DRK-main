@@ -18,7 +18,6 @@
     <header>
         <div class="header-container">
             <h1>Sobre Nós</h1>
-            <!-- Botão do menu hambúrguer -->
             <div class="menu-hamburger" id="menu-hamburger">
                 <span></span>
                 <span></span>
@@ -33,6 +32,7 @@
             </nav>
         </div>
     </header>
+
     <div class="conteudo">
         <p>Nicole e Dérik se conheceram na escola, mas Dérik era muito tímido para chegar nela, mesmo ela se esgueirando
             toda nele, então o amor só começou de fato 3 anos depois quando Dérik tomou coragem e deu encima de Nicole
@@ -44,15 +44,46 @@
 
     <footer>
         <p>&copy; 2026 Seu Site. Feito pelo Juiu.</p>
-        <audio id="bgm" class="audio-player" src="audio.mp3" controls autoplay loop preload="auto"></audio>
+        <!-- Removi o 'autoplay' nativo aqui para controlá-lo melhor via script devido às políticas do navegador -->
+        <audio id="bgm" class="audio-player" src="/audio/Djavan - Lilás (Ao Vivo) (Áudio Oficial).mp3" controls loop
+            preload="auto"></audio>
 
         <script>
-            window.onload = function () {
-                var player = document.getElementById("bgm");
-                if (player) {
-                    player.volume = 0.1;
+            const player = document.getElementById("bgm");
+
+            // 1. Ao carregar a página
+            window.addEventListener('DOMContentLoaded', () => {
+                // Recupera o tempo salvo no navegador
+                const savedTime = localStorage.getItem("musicaTempo");
+                const isPlaying = localStorage.getItem("musicaTocando");
+
+                player.volume = 0.1; // Mantém seu volume baixo
+
+                if (savedTime) {
+                    player.currentTime = parseFloat(savedTime);
                 }
-            };
+
+                // Tenta dar o play automaticamente se estava tocando antes
+                // Nota: O navegador pode bloquear se não houver clique, mas ao navegar entre abas costuma funcionar
+                if (isPlaying === "true") {
+                    player.play().catch(e => console.log("Aguardando interação para tocar som."));
+                }
+            });
+
+            // 2. Salva o tempo atual a cada 500ms para precisão
+            setInterval(() => {
+                if (!player.paused) {
+                    localStorage.setItem("musicaTempo", player.currentTime);
+                    localStorage.setItem("musicaTocando", "true");
+                } else {
+                    localStorage.setItem("musicaTocando", "false");
+                }
+            }, 500);
+
+            // 3. Garante que salve o tempo exato ao clicar em links (navegar)
+            window.addEventListener("beforeunload", () => {
+                localStorage.setItem("musicaTempo", player.currentTime);
+            });
         </script>
     </footer>
 </body>

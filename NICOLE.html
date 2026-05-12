@@ -117,19 +117,45 @@
 
     <script src="js/script.js"></script>
 
-    <footer>
+<footer>
         <p>&copy; 2026 Seu Site. Feito pelo Juiu.</p>
-        <audio id="bgm" class="audio-player" src="/audio/Djavan - Lilás (Ao Vivo) (Áudio Oficial).mp3" controls loop preload="auto" autoplay></audio>
+        <audio id="bgm" class="audio-player" src="/audio/Djavan - Lilás (Ao Vivo) (Áudio Oficial).mp3" controls loop preload="auto"></audio>
 
         <script>
-            window.onload = function () {
-                var player = document.getElementById("bgm");
-                if (player) {
-                    player.volume = 0.1; /* Começa bem baixinho */
+            const player = document.getElementById("bgm");
+
+            // 1. Ao carregar a página (Recupera onde parou)
+            window.addEventListener('DOMContentLoaded', () => {
+                const savedTime = localStorage.getItem("musicaTempo");
+                const isPlaying = localStorage.getItem("musicaTocando");
+
+                player.volume = 0.1; 
+
+                if (savedTime) {
+                    player.currentTime = parseFloat(savedTime);
                 }
-            };
+
+                // Se estava tocando na outra página, tenta continuar aqui
+                if (isPlaying === "true") {
+                    player.play().catch(e => console.log("Aguardando interação."));
+                }
+            });
+
+            // 2. Salva o progresso continuamente
+            setInterval(() => {
+                if (!player.paused) {
+                    localStorage.setItem("musicaTempo", player.currentTime);
+                    localStorage.setItem("musicaTocando", "true");
+                } else {
+                    localStorage.setItem("musicaTocando", "false");
+                }
+            }, 500);
+
+            // 3. Salva no momento exato da saída
+            window.addEventListener("beforeunload", () => {
+                localStorage.setItem("musicaTempo", player.currentTime);
+            });
         </script>
     </footer>
 </body>
-
 </html>
