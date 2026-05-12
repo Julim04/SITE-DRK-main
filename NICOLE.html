@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nicole</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <div class="title-section">
+                <h1>Nicole & Dérik</h1>
+                <p></p>
+                <h2>Feliz 1 ano e 1 mês!</h2>
+            </div>
+            <!-- Botão do menu hambúrguer -->
+            <div class="menu-hamburger" id="menu-hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav id="nav-menu">
+                <ul>
+                    <li><a href="NICOLE.html">Início</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="conteudo">
+        <p>Desde que você entrou na minha vida, tudo começou a fazer mais sentido, até mesmo quando você queria terminar
+            comigo kkkkk. E agora, olhando pra tudo que vivemos nesse 1 ano e 1 mês juntos, eu percebo o quanto você se
+            tornou parte de absolutamente tudo em mim.</p>
+
+        <p>Você está nos meus pensamentos durante o dia, nas coisas que me fazem sorrir sem motivo e até nos momentos
+            simples que antes pareciam normais, mas que ficaram especiais porque passaram a ter você. Sua presença mudou
+            meu dia a dia e meu sentimentos.</p>
+
+        <p>O mais bonito da nossa relação é que mesmo com o tempo passando, eu continuo novos motivos pra me apaixonar
+            por você. No seu jeito de falar, de rir, de desmontrar carinho, de cuidar de mim sem nem perceber... tudo em
+            você consegue me fazer sentir amado de verdade.</p>
+
+        <p>Eu amo a maneira como a gente consegue transformar momentos pequenos em lembranças enormes. Amo quando a
+            gente conversa fofocando dos outros, quando assistimos qualquer coisa juntos, quando você dorme
+            <strong>LOUCAMENTE</strong> no meu peito sempre que a série ta chata, kkkk.
+        </p>
+        <p>Nicole, você me trouxe felicide em uma intensidade que eu nunca tinha vivido antes. E mais do que isso, me
+            trouxe a sensação de pertencimento, como se meu coração finalmente tivesse encontrado o lugar certo pra
+            ficar.</p>
+
+        <p>Esse 1 ano e 1 mês não representam apenas tempo. Representam memórias, aprendizados, carinho, parceria e um
+            amor que cresce mais a cada dia que passa. E se depender de mim, isso é só o começo de tudo que ainda vamos
+            viver juntos.</p>
+
+        <p>Obrigado por existir na minha vida, você sempre será a minha certeza, sempre!!</p>
+
+        <h2>Eu te amo pro resto da vida lindinha!❤️</h2>
+    </div>
+    <div class="divider">
+        <div class="divider-line"></div>
+        <span class="divider-heart">❤</span>
+        <div class="divider-line"></div>
+    </div>
+    <br>
+    <h1 class="memories">Nossas Memórias</h1>
+    <!-- CARROSSEL DE IMAGENS -->
+    <div class="carrossel-container">
+        <div class="carrossel">
+            <div class="carrossel-slides">
+                <div class="slide">
+                    <img src="images/NIC E DRK.jpg" alt="Foto 1">
+                </div>
+                <div class="slide">
+                    <img src="images/NIC E DRK2.jpg" alt="Foto 2">
+                </div>
+                <div class="slide">
+                    <img src="images/NIC E DRK3.jpg" alt="Foto 3">
+                </div>
+                <div class="slide">
+                    <img src="images/NIC E DRK4.jpg" alt="Foto 4">
+                </div>
+                <div class="slide">
+                    <img src="images/NIC E DRK5.jpg" alt="Foto 5">
+                </div>
+                <div class="slide">
+                    <img src="images/NIC E DRK6.jpg" alt="Foto 6">
+                </div>
+                <div class="slide">
+                    <img src="images/NIC E DRK7.jpg" alt="Foto 7">
+                </div>
+            </div>
+
+            <!-- Botões de navegação -->
+            <button class="carrossel-btn anterior">&#10094;</button>
+            <button class="carrossel-btn proximo">&#10095;</button>
+
+            <!-- Indicadores (bolinhas) -->
+            <div class="indicadores">
+                <span class="indicador ativo" data-slide="0"></span>
+                <span class="indicador" data-slide="1"></span>
+                <span class="indicador" data-slide="2"></span>
+                <span class="indicador" data-slide="3"></span>
+                <span class="indicador" data-slide="4"></span>
+                <span class="indicador" data-slide="5"></span>
+                <span class="indicador" data-slide="6"></span>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+
+    <footer>
+        <p>&copy; 2026 Seu Site. Feito pelo Juiu.</p>
+        <audio id="bgm" class="audio-player" src="/audio/Djavan - Lilás (Ao Vivo) (Áudio Oficial).mp3" controls autoplay loop preload="auto"></audio>
+
+        <script>
+            window.onload = function () {
+                var player = document.getElementById("bgm");
+                if (player) {
+                    player.volume = 0.1; /* Começa bem baixinho */
+                }
+            };
+        </script>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,160 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-image: url("https://apod.nasa.gov/apod/image/2512/FornaxA_final_apod.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  /* FLEXBOX NO BODY - estrutura em coluna */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ========== HEADER ========== */
+header {
+  color: #ffc21b;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+}
+
+header h1 {
+  font-size: 3em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+audio.audio-player {
+  width: min(100%, 600px);
+  margin: 20px auto 0;
+  display: block;
+  border: 30px solid rgba(255, 255, 255, 0.35);
+  border-radius: 18px;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+}
+
+audio.audio-player::-webkit-media-controls-panel {
+  background: rgba(0, 0, 0, 0.55);
+}
+
+/* Menu Hamburger */
+.header-container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+header h1 {
+  font-size: 3em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  margin: 0 auto;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  white-space: nowrap;
+}
+/* Menu Hambúrguer - Botão */
+.menu-hamburger {
+  display: none;
+  order: -1;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  padding: 10px;
+  margin-right: 20px;
+  z-index: 100;
+}
+
+.menu-hamburger span {
+  width: 30px;
+  height: 3px;
+  background-color: #ffc21b;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+/* Animação do botão quando aberto */
+.menu-hamburger.ativo span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-hamburger.ativo span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-hamburger.ativo span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Navegação */
+nav {
+  background-color: rgba(0, 0, 0, 0.85);
+  padding: 15px 25px;
+  border-radius: 500px;
+  transition: all 0.3s ease;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2em;
+  transition: color 0.3s ease;
+  padding: 8px 15px;
+  border-radius: 500px;
+}
+
+nav ul li a:hover {
+  color: #ff6b6b;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+/* ========== CONTEÚDO ========== */
+.conteudo {
+  flex: 1;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  border-radius: 10px;
+  max-width: 800px;
+  margin: 20px auto;
+}
+.conteudo p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.conteudo img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin: 20px auto;
+}
+.conteudo figcaption {
+  font-size: 0.9em;
+  color: #ccc;
+  margin-top: 10px;
+  text-align: center;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.3);
+  margin: 10px 0;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre nós</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="css/sobre.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Sobre Nós</h1>
+            <!-- Botão do menu hambúrguer -->
+            <div class="menu-hamburger" id="menu-hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <nav id="nav-menu">
+                <ul>
+                    <li><a href="NICOLE.html">Início</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="conteudo">
+        <p>Nicole e Dérik se conheceram na escola, mas Dérik era muito tímido para chegar nela, mesmo ela se esgueirando
+            toda nele, então o amor só começou de fato 3 anos depois quando Dérik tomou coragem e deu encima de Nicole
+            pelo app do Instagram, assim, começando uma grande jornada de amor que somam 1 ano e 1 mês juntos de muito
+            amor e resiliência.</p>
+        <img src="images/NIC E DRK8.jpg" alt="Nicole e Dérik">
+        <figcaption>12/04/2025 </figcaption>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Seu Site. Feito pelo Juiu.</p>
+        <audio id="bgm" class="audio-player" src="audio.mp3" controls autoplay loop preload="auto"></audio>
+
+        <script>
+            window.onload = function () {
+                var player = document.getElementById("bgm");
+                if (player) {
+                    player.volume = 0.1;
+                }
+            };
+        </script>
+    </footer>
+</body>
+
+</html>
