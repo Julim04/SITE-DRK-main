@@ -88,3 +88,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+const audio = document.getElementById("meuAudio");
+
+// 1. Ao carregar a página, verifica se existe um tempo salvo
+window.onload = () => {
+    const salvo = localStorage.getItem("tempoAudio");
+    if (salvo) {
+        audio.currentTime = parseFloat(salvo);
+    }
+};
+
+// 2. A cada segundo, salva o progresso atual
+setInterval(() => {
+    localStorage.setItem("tempoAudio", audio.currentTime);
+}, 1000);
